@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/home.css">
+
+    <!-- default load javascript -->
+    <script type="text/javascript" src="../libs/jquery/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="../libs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../libs/handlebars/handlebars.js"></script>
+
+</head>
+<body style="background-color:#EBEBEB;">
+<div class="hook" id="hook"><div class="hook-loader"><div class="hook-spinner"></div></div></div>
+
+<!--card mam template-->
+<script id="ranking-template" type="text/x-handlebars-template">
+	<div class="ranking" val="{{app_id}}">
+		<div class="rank"><div>{{rank}}</div></div>
+		<div class="title">{{title}}</div>
+		<div class="icon"><img src="{{icon_url}}" /></div>
+		<div class="summary">{{summary}}</div>
+		<div class="more_info">
+			リリースから<span class="until_count">{{until_release}}</span>日/
+			<span class="category">   {{category}}</span>/
+			<span class="maker">   {{maker}}</span>
+		</div>
+	</div>
+</script>
+
+    
+    
+<div id="rankings" class="ranking_list">
+</div>
+<div class="loader" style="display:none; height:30px; text-align: center;">
+	<img alt="" style="height:80px; width:80px; margin:60px 0px 10 0px;" class="loader_img" src="../images/common/loader.gif"/>
+</div>
+</body>
+    <!-- javascript -->
+    <script>
+    	_offset = 0;
+    	_limit = 10;
+    
+        // onload method
+        $(function(){
+            getRankingData();
+           
+        });
+// -----------API--------------------
+        function getRankingData()
+        {
+        	if(_nowLoading)return;
+        	_nowLoading = true;
+			$(".loader").show();
+            var obj = new Object();
+            obj.limit = 100;
+            
+            reqUrl = DUMMY_SWAGGER_URL_DOMAIN + "/appRank/api/public/ranking/read";
+            cl(reqUrl);
+            httpRequest.get(reqUrl,"json",obj,successFunc);
+        }
+
+        var _json;
+        var successFunc = function _getCardsData(responseData)
+        {
+            _json = responseData;
+            cl(_json);
+            addRanking(_json);
+        }
+// -----------API--------------------
+		function addRanking(json)
+		{
+			for(var i = 0; i < json.length; i++)
+			{
+				var ranking = json[i];
+				
+				// リリースからの日数
+				var nowDate = new Date();
+				var releaseDate = new Date(ranking.release_date);
+				var until = (nowDate.getTime() - releaseDate.getTime())/(1000*60*60*24);
+				ranking.until_release = Math.floor(until);
+								
+	            var source   = $("#ranking-template").html();
+	            var template = Handlebars.compile(source);		            
+	            $("#rankings").append(template(ranking));
+				
+			}
+			
+			$(".ranking").click(function(){
+				var app_id = $(this).attr("val");
+				location.href = "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id="+app_id+"&mt=8";
+			});
+		}
+            
+    </script>
+    <script type="text/javascript" src="../js/common.js"></script>
+
+</html>

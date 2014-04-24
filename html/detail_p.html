@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../libs/hook/hook.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/detail.css">
+
+    <!-- default load javascript -->
+    <script type="text/javascript" src="../libs/jquery/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="../libs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../libs/handlebars/handlebars.js"></script>
+    <script type="text/javascript" src="../libs/masonry/masonry.js"></script>
+    <script type="text/javascript" src="../libs/imagesloaded/imagesloaded.js"></script>
+    <script type="text/javascript" src="../libs/hook/hook.min.js"></script>
+    <script type="text/javascript" src="../libs/swfobject/swfobject.js"></script>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+
+</head>
+<body style="background-color:#EBEBEB;">
+<div class="hook" id="hook"><div class="hook-loader"><div class="hook-spinner"></div></div></div>
+
+<!-- nav -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background-color:#53585F;">
+      <div class="container">
+        <div class="">
+          <img src="../images/common/userIcon.png" style="margin-top:5px;"/>
+          <span style="font-weight:bold;font-size:120%; margin-left:5px;color:white;padding-top:25px;">Kazuya</span>
+          <a href="#" style="position:absolute;right:7px;top:8px;"><img style="width:80px;"src="../images/common/logo.png"/></a>
+        </div>
+        </div>
+    </div>
+    
+
+<div id="player"></div>
+<div class="action_area">
+	<button id="compBtn" type="button" id="completeCtn" class="btn btn-primary" style="display:none;">見た！！</button>
+	<div id="content_info" style="display:none;">
+		算数 - 関連教材<br />
+		ゼロシステム(仮)社より提供<br />
+		<br />
+		<div style="font-size:120%;decolation:underline;">関連ワード一覧</div><br />
+		<span class="search_word">三角形の基礎知識、</span>
+		<span class="search_word">算数 教え方、</span>
+		<span class="search_word">算数　雑学、</span>
+		<span class="search_word">算数 学校</span>
+	</div>
+</div>
+
+</body>
+    <!-- javascript -->
+    <script>
+    var _videoUrl;
+    var _cardId;
+    var _type;
+    
+        // onload method
+        $(function(){
+            _videoUrl = _RequestParams.url;
+            _cardId = _RequestParams.id;
+            _type = _RequestParams.type;
+            
+            setVideoPlayer();
+            
+            $('#hook').hook({
+              reloadPage: false,
+              reloadEl: function(){
+                //location.reload();
+              }
+            });
+            
+            if(_type == "child")
+            {
+            	$("#compBtn").show();
+            }else{
+            	$("#content_info").fadeIn();
+            }
+            
+            $("#completeCtn").click(function(){
+            	alert("お疲れさま!\n他の動画も見てみよう(*u*");
+            });            
+        });
+        
+        function setVideoPlayer()
+        {
+			var tag = document.createElement('script');
+			tag.src = "//www.youtube.com/iframe_api";
+			var firstScriptTag = document.getElementsByTagName('script')[0];
+			firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        }
+        
+	//Load player api asynchronously.
+		var done = false;
+		var player;
+		function onYouTubeIframeAPIReady() {
+			player = new YT.Player('player', {
+				width: '100%',
+				videoId: getYoutubeMovieTag(_videoUrl),
+				events: {
+					'onReady': onPlayerReady,
+					'onStateChange': onPlayerStateChange
+				}
+			});
+		}
+
+		function onPlayerReady(evt) {
+			//evt.target.playVideo();
+		}
+
+		function onPlayerStateChange(evt) {
+			if (evt.data == YT.PlayerState.ENDED) {
+				if(_type == "child")
+				{
+					changedShowedCount();
+					alert("お疲れさま!\n他の動画も見てみよう(*u*");
+				}
+			}
+		}
+
+		function stopVideo() {
+			player.stopVideo();
+		}
+
+	    </script>
+    <script type="text/javascript" src="../js/common.js"></script>
+
+</html>

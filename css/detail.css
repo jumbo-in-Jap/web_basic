@@ -1,0 +1,78 @@
+#content_info
+{
+    box-shadow: 0 0 4px #999;
+    -moz-box-shadow: 0 0 4px #999;
+    -webkit-box-shadow: 0 0 4px #999;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+	height:360px;
+	color:#6f6f6f;
+	padding:20px;
+	background-color:#ffffff;
+}
+
+.video_area
+{
+    box-shadow: 0 0 4px #999;
+    -moz-box-shadow: 0 0 4px #999;
+    -webkit-box-shadow: 0 0 4px #999;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    padding: 10px;
+    margin: 5px;
+    position:relative;
+    background-color:#ffffff;
+    width:60%;
+    float:left;
+}
+
+#player
+{
+/*	float:left;*/
+}
+
+.video_area .title
+{
+	/*position:absolute;
+	right:10px;
+	bottom:100px;*/
+	font-size:150%;
+	width:100%;
+}
+
+.video_area .omoshiro_area
+{
+	text-align:right;
+}
+.video_area .omoshiro
+{
+	/*position:absolute;
+	right:10px;
+	bottom:40px;*/
+		font-size:150%;	
+}
+
+.relate_content_area
+{
+    box-shadow: 0 0 4px #999;
+    -moz-box-shadow: 0 0 4px #999;
+    -webkit-box-shadow: 0 0 4px #999;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+	overflow:scroll;
+}
+
+.relate_content_head
+{
+	text-align:center;
+	font-size:150%;
+	font-weight:bold;
+	margin:10px;
+}
+.card 
+{
+	float:none;
+	width:100%;
+}
+
+.relate_content
+{
+	padding:10px;
+}

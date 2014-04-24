@@ -1,0 +1,212 @@
+/*                         home - カード一覧画面                                   */
+ - - コンテンツ取得API
+ - URL : URL/getCardApi.php?userid=1&time=0&offset=10&limit=10
+userId - string
+time - epoc time string
+offset - offset stiring
+limit - limit string
+
+ - Response json : 
+{
+	"results":[
+		{"cardId":100,
+		 "time":"2014/3/12 12:00",
+		 "title":"Science",
+		 "content_url":"http://www.youtube.com/watch?v=i_2mWhfOhGU",
+		 "description":"この動画は理科のおすすめです",
+		 "isFaved":true,
+		 "cardType":"normal"},
+		{"cardId":101,
+		 "time":"2014/3/12 12:00",
+		 "title":"Science",
+		 "content_url":"http://www.youtube.com/watch?v=i_2mWhfOhGU",
+		 "description":"この動画は理科のおすすめです",
+		 "isFaved":true,
+		 "cardType":"normal"}
+	],
+	"show_all":true
+}
+
+show_all : これ以上表示するコンテンツが無ければtrue
+
+ - - お気に入りAPI
+ - URL : URL/addFavApi.php
+ - query json : 
+{
+	"userId":1,
+	"cardId":100
+}
+
+ - Response json
+{
+	"status":"success"
+}
+
+
+/*                         parent - リスト画面                                   */
+ - - リスト取得API
+ - URL : URL/getListApi.php?userid=1&time=0&offset=10&limit=10
+userId - string
+time - epoc time string 
+offset - offset stiring
+limit - limit string
+
+ - Response json : 
+{
+	"results":[
+		{"listId":4,
+		 "time":"2014/3/12 12:00",
+		 "card":
+			 {
+			 "cardId":100,
+			 "time":"2014/3/12 12:00",
+			 "title":"Science",
+			 "content_url":"http://www.youtube.com/watch?v=i_2mWhfOhGU",
+			 "description":"この動画は理科のおすすめです",
+			 "isFaved":true,
+			 "cardType":"normal"
+			},
+		 "comment":"を見ました",
+		 "listType":"favorite",
+		 "like":true
+		 },
+		{"listId":5,
+		 "time":"2014/3/12 12:00",
+		 "content_url":"http://www.youtube.com/watch?v=i_2mWhfOhGU",
+		 "description":"この動画は理科のおすすめです",
+		 "listType":"normal",
+		 "like":false}
+	],
+	"show_all":true
+}
+
+show_all : これ以上表示するコンテンツが無ければtrue
+
+
+ - - リストにいいねAPI
+ - URL : URL/likelist.php
+  - query json : 
+{
+	"userId":1,
+	"listId":100
+}
+
+ - Response query
+{
+	"status":"success"
+}
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//////////// new 
+
+
+# baseUil
+http://excref.com/sample/evo/public/api/
+
+# コンテンツ一覧
+
+- Request
+getCards?userId=1&time=0&offset=0&limit=10
+
+- Response
+{
+    "totalResultsAvailable":100,  // 総件数
+    "totalResultsReturned":10,    // resultsに含まれる件数
+    "firstResultPosition":0,      // 開始位置
+    "results":[
+        {"cardId":100,
+         "time":"2014/3/12 12:00",
+         "title":"Science",
+         "contentUrl":"http://www.youtube.com/watch?v=i_2mWhfOhGU",
+         "description":"この動画は理科のおすすめです",
+         "isFavorite":true,
+         "cardType":"1",
+         "category":"理科"
+        },
+        {"cardId":100,
+         "time":"2014/3/12 12:00",
+         "title":"Science",
+         "contentUrl":"http://www.youtube.com/watch?v=i_2mWhfOhGU",
+         "description":"この動画は理科のおすすめです",
+         "isFavorite":true,
+         "cardType":"1",
+         "category":"理科"
+        }
+    ],
+    "showAll":true
+}
+
+
+
+# お気に入りAPI
+- Request
+addFavorite
+
+- query json : 
+{
+    "userId":1,
+    "cardId":100
+}
+
+- Response normal json
+{
+    "status":"success"
+}
+
+- Response error json
+{
+    "status":"error"
+}
+
+# 親向け 子どもの活動一覧
+- Request
+getChildActivities?userId=1&time=0&offset=10&limit=10
+
+- Response
+{
+    "totalResultsAvailable":100,  // 総件数
+    "totalResultsReturned":10,    // resultsに含まれる件数
+    "firstResultPosition":0,      // 開始位置
+    "results":[
+        {"listId":4,
+         "childId":1,      // 子どもuserId
+         "time":"2014/3/12 12:00",
+         "contentUrl":"http://hogehoge.com",
+         "title":"fugafuga",
+         "watch":false,    // 見終わったか
+         "favorite":true   // お気に入りしているか     
+         },
+        {"listId":5,
+         "childId":1,
+         "time":"2014/3/12 12:00",
+         "contentUrl":"http://www.youtube.com/watch?v=i_2mWhfOhGU",
+         "description":"この動画は理科のおすすめです",
+         "watch":true,
+         "favorite":false
+         }
+    ],
+    "showAll":true
+}
+
+# 親向け いいね
+- Request
+addLike
+
+- query json:
+{
+    "userId":2,   // 親userId
+    "childId":1,  // 子どもuserId
+    "listId":100
+}
+
+- Response normal json
+{
+    "status":"success"
+}
+
+- Response error json
+{
+    "status":"error"
+}

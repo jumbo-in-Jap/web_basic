@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../libs/hook/hook.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/detail.css">
+    <link rel="stylesheet" href="../css/home.css">
+
+    <!-- default load javascript -->
+    <script type="text/javascript" src="../libs/jquery/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="../libs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../libs/handlebars/handlebars.js"></script>
+    <script type="text/javascript" src="../libs/masonry/masonry.js"></script>
+    <script type="text/javascript" src="../libs/imagesloaded/imagesloaded.js"></script>
+    <script type="text/javascript" src="../libs/hook/hook.min.js"></script>
+    <script type="text/javascript" src="../libs/swfobject/swfobject.js"></script>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+
+</head>
+<body style="background-color:#EBEBEB;">
+<div class="hook" id="hook"><div class="hook-loader"><div class="hook-spinner"></div></div></div>
+
+<!-- nav -->
+<!-- nav -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background-color:#006318;">
+      <div class="container">
+        <div class="navbar-header">
+          <img src="../images/sample/face.png" class="face"/>
+          <span class="name">Kazuya</span>
+          <span class="status">Lv. <span id="level">12</span>　次のレベルまで　<span class="badge badge-warning font-size:120%;">
+          	<span id="exp">4</span>枚</span></span>
+        </div>
+         <div class="navbar-inner">
+            <div class="nav-center">
+                <a href="home.html"><img src="../images/common/logo.png"/></a>
+            </div>
+        </div>
+        </div>
+    </div>
+    
+<div class="video_area">
+<div id="player"></div>
+<div class="title"></div>
+	<div class="omoshiro_area">
+		<button class="btn omoshiro btn-success">おもしろい！</button>
+	</div>
+</div>
+
+<div class="relate_content_area">
+<div class="relate_content_head">こっちもおすすめ！</div>
+<div class="card relate_content" id="card_2" style="width:100%;">
+    <div class="title">BLACK: My journey to yo-yo mastery</div>
+    <div class="content content_2" style="height: 221px;">
+        <img src="http://i.ytimg.com/vi/AuX7nPBqDts/0.jpg" alt="" class="thumbnail" val2="http://www.youtube.com/watch?v=gnuFrtTNUTc" val1="2" val3="BLACK: My journey to yo-yo mastery">
+        <img src="http://i.ytimg.com/vi/AuX7nPBqDts/1.jpg" alt="" class="thumbnail" val2="http://www.youtube.com/watch?v=gnuFrtTNUTc" val1="2" val3="BLACK: My journey to yo-yo mastery">
+        <img src="http://i.ytimg.com/vi/AuX7nPBqDts/2.jpg" alt="" class="thumbnail" val2="http://www.youtube.com/watch?v=gnuFrtTNUTc" val1="2" val3="BLACK: My journey to yo-yo mastery">
+    </div>
+    <div class="comment"></div>
+    <div class="iine_area">
+    	<img class="iine_header" src="../images/sample/smile.png">
+    	<span class="iine">30</span>
+    </div>
+</div>
+
+<div class="card relate_content" id="card_2" style="width:100%;">
+    <div class="title">【社会】室町時代②　・　基本編</div>
+    <div class="content content_2" style="height: 221px">
+        <img src="http://i.ytimg.com/vi/m6LCRFCAtcY/0.jpg" alt="" class="thumbnail" val2="http://www.youtube.com/watch?v=m6LCRFCAtcY" val1="2" val3="【社会】室町時代②　・　基本編">
+        <img src="http://i.ytimg.com/vi/m6LCRFCAtcY/1.jpg" alt="" class="thumbnail" val2="http://www.youtube.com/watch?v=m6LCRFCAtcY" val1="2" val3="【社会】室町時代②　・　基本編">
+        <img src="http://i.ytimg.com/vi/m6LCRFCAtcY/2.jpg" alt="" class="thumbnail" val2="http://www.youtube.com/watch?v=m6LCRFCAtcY" val1="2" val3="【社会】室町時代②　・　基本編">
+    </div>
+    <div class="comment"></div>
+    <div class="iine_area">
+    	<img class="iine_header" src="../images/sample/smile.png">
+    	<span class="iine">30</span>
+    </div>
+</div>
+<div class="card relate_content" id="card_2" style="width:100%;">
+    <div class="title">最強チームの作り方（ドッジボール）</div>
+    <div class="content content_2" style="height: 221px;">
+        <img src="http://i.ytimg.com/vi/UhpN6-Vdh5E/0.jpg" alt="" class="thumbnail" val2="http://www.youtube.com/watch?v=UhpN6-Vdh5E" val1="2" val3="最強チームの作り方（ドッジボール）">
+        <img src="http://i.ytimg.com/vi/UhpN6-Vdh5E/1.jpg" alt="" class="thumbnail" val2="http://www.youtube.com/watch?v=UhpN6-Vdh5E" val1="2" val3="最強チームの作り方（ドッジボール）">
+        <img src="http://i.ytimg.com/vi/UhpN6-Vdh5E/2.jpg" alt="" class="thumbnail" val2="http://www.youtube.com/watch?v=UhpN6-Vdh5E" val1="2" val3="最強チームの作り方（ドッジボール）">
+    </div>
+    <div class="comment"></div>
+    <div class="iine_area">
+    	<img class="iine_header" src="../images/sample/smile.png">
+    	<span class="iine">30</span>
+    </div>
+</div>
+
+<!-- <img class="relate_content" src="http://i.ytimg.com/vi/AuX7nPBqDts/0.jpg" alt="" class="thumbnail" val2="http://www.youtube.com/watch?v=AuX7nPBqDts" val3="">	
+<img class="relate_content" src="http://i.ytimg.com/vi/ZJyoyrBfaBk/0.jpg" alt="" class="thumbnail" val2="http://www.youtube.com/watch?v=ZJyoyrBfaBk" val3="" style="display: block;">
+<img class="relate_content" src="http://i.ytimg.com/vi/IXMx7sz8Gyg/0.jpg" alt="" class="thumbnail" val2="http://www.youtube.com/watch?v=IXMx7sz8Gyg" val3="ドリブル上達テクニック" style="display: block;"> -->
+</div>
+
+</body>
+    <!-- javascript -->
+    <script>
+    var _videoUrl;
+    var _cardId;
+    var _type;
+    
+        // onload method
+        $(function(){
+            _videoUrl = _RequestParams.url;
+            _cardId = _RequestParams.id;
+            _type = _RequestParams.type;
+            _name = _RequestParams.name;
+            
+            _gaq.push(['_trackEvent', 'detail', 'see', _name, 1])
+            
+            $(".video_area .title").text(_name);
+            
+            setVideoPlayer();
+            
+            $('#hook').hook({
+              reloadPage: false,
+              reloadEl: function(){
+                //location.reload();
+              }
+            });
+            
+            setStatus();
+                        
+            $("#completeCtn").click(function(){
+            	alert("お疲れさま!\n他の動画も見てみよう(*u*");
+            });
+            
+            $(".card .thumbnail").unbind();            
+            $(".card .thumbnail").click(function(){
+            	var id = $(this).attr('val1');
+            	var contentUrl = $(this).attr('val2');
+            	var name = $(this).attr('val3');
+            	location.href = "./detail_c.html?id="+id+"&url="+encodeURIComponent(contentUrl)+"&name="+encodeURIComponent(name);
+            });
+            
+            $(".relate_content").imagesLoaded(function(){ //imagesLoadedを入れて崩れないように
+                $(".content").height($(".thumbnail").height());
+            });
+            
+        });
+        
+        function setStatus()
+        {
+            // set Status
+            if(!localStorage.lv)
+            {
+            	localStorage.lv = 10;
+            	localStorage.exp = 2;
+            }
+            $("#level").text(localStorage.lv);
+            $("#exp").text(localStorage.exp);
+        	
+        }
+        
+        function setVideoPlayer()
+        {
+			var tag = document.createElement('script');
+			tag.src = "//www.youtube.com/iframe_api";
+			var firstScriptTag = document.getElementsByTagName('script')[0];
+			firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        }
+        
+	//Load player api asynchronously.
+		var done = false;
+		var player;
+		function onYouTubeIframeAPIReady() {
+			player = new YT.Player('player', {
+				width: '100%',
+				videoId: getYoutubeMovieTag(_videoUrl),
+				events: {
+					'onReady': onPlayerReady,
+					'onStateChange': onPlayerStateChange
+				}
+			});
+		}
+
+		function onPlayerReady(evt) {
+			//evt.target.playVideo();
+			$(".relate_content_area").height($(".video_area").height()+20);
+		}
+
+		function onPlayerStateChange(evt) {
+			if (evt.data == YT.PlayerState.ENDED) {
+				changedShowedCount();
+				setStatus();
+				alert("お疲れさま!\n他の動画も見てみよう(*u*");
+				chkFavorite(_cardId, true);
+			}
+		}
+
+		function stopVideo() {
+			player.stopVideo();
+		}
+		
+        function chkFavorite(id, state)
+        {
+        	if(state == false)return;
+        	// post to like
+        	var postData = new Object();
+        	postData.userId = 1;
+        	postData.cardId = id;
+            reqUrl = DUMMY_SWAGGER_URL_DOMAIN + "addFavorite";
+            httpRequest.post(reqUrl,"json",postData,postChk);
+        }
+        
+        // like success
+        var postChk = function()
+        {
+        	var postData = new Object();
+        	postData.toParent = 1;
+            reqUrl = "http://www16095ui.sakura.ne.jp/majiq/api/mjqPushApi.php";
+            httpRequest.post(reqUrl,"json",postData);
+        }
+
+	    </script>
+    <script type="text/javascript" src="../js/common.js"></script>
+
+</html>

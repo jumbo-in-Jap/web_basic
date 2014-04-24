@@ -1,0 +1,137 @@
+.action_list
+{
+}
+.navbar
+{
+	min-height:45px;
+	padding:2px;	
+}
+.container
+{
+	padding-right:5px;
+	padding-left:5px;
+}
+.list_area
+{
+	width:100%;
+	position:relative;
+}
+.list
+{
+    box-shadow: 0 0 2px #999;
+    -moz-box-shadow: 0 0 2px #999;
+    -webkit-box-shadow: 0 0 2px #999;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    width: 92%;
+    height: 110px;
+    margin:10px 0 10px 0;
+    padding: 5px;
+    position:relative;
+    background-color:#ffffff;
+    
+    border-radius: 3px;        /* CSS3草案 */  
+    -webkit-border-radius: 3px;    /* Safari,Google Chrome用 */  
+    -moz-border-radius: 3px;   /* Firefox用 */ }
+.list .content
+{
+    float: left;
+    height: 65px;
+    margin : 0 5px 0 0;
+}
+
+.list .content img
+{
+	height:100%;
+	border: #000000 1px solid;
+	padding:2px;
+}
+
+.list .time
+{
+	
+    font-size: 80%;
+    color: #666666;
+    text-align:right;
+    position:absolute;
+    bottom:30px;
+    right:10px;
+}
+
+.list .text
+{
+    overflow:hidden;
+    color:#888888;
+    font-size:80%;
+}
+
+.list .favo
+{
+	position:absolute;
+	right: 5px;
+	bottom:4px;
+	height:20px;
+	font-size:90%;
+	padding-top:0px;
+}
+
+.list .description
+{
+	font-size:80%;
+}
+
+.icon
+{
+	position:absolute;
+	right:0px;
+	top:35px;	
+	width:100%;
+	text-align:right;
+}
+
+.icon img
+{
+	//width:10%;
+}
+
+.space
+{
+    height: 100%;
+    background-color: #666666;
+}
+
+.search_section
+{
+	position:absolute;
+	/* right:10px; */
+	text-align:right;
+	padding-right: 20px;
+	bottom:3px;
+	left:10px;
+}
+.search_head
+{
+	color:#53585F;
+	font-weight:bold;
+	font-size:100%;
+}
+
+.search_word
+{
+	color:#53581a;
+	font-size:90%;
+	text-decoration: underline;	
+	margin-right:10px;
+}
+
+.separater
+{
+	border-bottom:#aaaaaa 1px solid;
+	position:absolute;
+	bottom:27px;
+	width:95%;
+}
+
+.btn-inverse
+{
+	color:#aaaaaa;
+}
